@@ -4,540 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InkShift Studio — AI-Powered Cover Art for Webnovel Authors</title>
+<meta name="description" content="InkShift Studio creates genre-accurate AI-powered cover art for webnovel authors. Fantasy, romance, and progression fantasy covers starting at $15.">
+<meta name="keywords" content="webnovel cover art, AI cover art, fantasy book cover, romance cover, LitRPG cover, progression fantasy, manhwa style cover">
+<link rel="icon" href="logos/logo-monogram.png" type="image/png">
+<meta property="og:title" content="InkShift Studio — AI-Powered Cover Art for Webnovel Authors">
+<meta property="og:description" content="Genre-accurate AI cover art for self-publishing webnovel authors. Covers from $15.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jyvman.github.io/inkshiftstudio/">
+<!-- Google Analytics placeholder — replace G-XXXXXXXXXX with real ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #12121a;
-  --bg-card: #1a1a26;
-  --text-primary: #e8e6e3;
-  --text-secondary: #9a97a0;
-  --accent-gold: #c9a84c;
-  --accent-purple: #8b5cf6;
-  --accent-teal: #2dd4bf;
-  --border-subtle: rgba(255,255,255,0.06);
-  --glow-purple: rgba(139,92,246,0.15);
-  --glow-gold: rgba(201,168,76,0.15);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Raleway', sans-serif;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-/* ===== HERO ===== */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  padding: 2rem;
-  background: 
-    radial-gradient(ellipse at 20% 50%, var(--glow-purple) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, var(--glow-gold) 0%, transparent 60%),
-    var(--bg-primary);
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect fill="none"/><circle fill="rgba(255,255,255,0.015)" cx="200" cy="300" r="1.5"/><circle fill="rgba(255,255,255,0.01)" cx="500" cy="100" r="1"/><circle fill="rgba(255,255,255,0.02)" cx="800" cy="400" r="1.2"/><circle fill="rgba(255,255,255,0.015)" cx="150" cy="700" r="1"/><circle fill="rgba(255,255,255,0.01)" cx="650" cy="600" r="1.5"/><circle fill="rgba(255,255,255,0.02)" cx="900" cy="800" r="1"/><circle fill="rgba(255,255,255,0.015)" cx="400" cy="500" r="1.2"/><circle fill="rgba(255,255,255,0.01)" cx="100" cy="900" r="1"/></svg>');
-  pointer-events: none;
-}
-
-.hero-content { position: relative; z-index: 1; }
-
-.logo-text {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  background: linear-gradient(135deg, var(--accent-gold), #e8d5a3, var(--accent-gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
-  animation: fadeInUp 1s ease-out;
-}
-
-.logo-sub {
-  font-family: 'Raleway', sans-serif;
-  font-size: clamp(0.75rem, 2vw, 1rem);
-  font-weight: 300;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-  animation: fadeInUp 1s ease-out 0.2s both;
-}
-
-.hero-tagline {
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
-  font-weight: 300;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto 3rem;
-  animation: fadeInUp 1s ease-out 0.4s both;
-}
-
-.hero-cta {
-  display: inline-flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  animation: fadeInUp 1s ease-out 0.6s both;
-}
-
-.btn {
-  padding: 0.85rem 2.2rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 1px solid var(--accent-gold);
-  color: var(--accent-gold);
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-.btn:hover {
-  background: var(--accent-gold);
-  color: var(--bg-primary);
-  box-shadow: 0 0 30px var(--glow-gold);
-}
-
-.btn-filled {
-  background: var(--accent-gold);
-  color: var(--bg-primary);
-}
-
-.btn-filled:hover {
-  background: transparent;
-  color: var(--accent-gold);
-}
-
-/* ===== NAVIGATION ===== */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  padding: 1.2rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(10,10,15,0.85);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
-  transition: all 0.3s ease;
-}
-
-.nav-logo {
-  font-family: 'Cinzel', serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--accent-gold);
-  text-decoration: none;
-  letter-spacing: 0.05em;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-}
-
-.nav-links a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover { color: var(--accent-gold); }
-
-/* ===== SECTIONS ===== */
-section {
-  padding: 6rem 2rem;
-}
-
-.section-label {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--accent-purple);
-  margin-bottom: 0.75rem;
-}
-
-.section-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-}
-
-.section-desc {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  max-width: 600px;
-  font-weight: 300;
-  line-height: 1.8;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ===== PORTFOLIO GALLERY ===== */
-#portfolio {
-  background: var(--bg-secondary);
-}
-
-.genre-tabs {
-  display: flex;
-  gap: 1rem;
-  margin: 2.5rem 0;
-  flex-wrap: wrap;
-}
-
-.genre-tab {
-  padding: 0.6rem 1.5rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.genre-tab:hover, .genre-tab.active {
-  border-color: var(--accent-gold);
-  color: var(--accent-gold);
-  background: rgba(201,168,76,0.05);
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 2/3;
-  cursor: pointer;
-  border: 1px solid var(--border-subtle);
-  transition: all 0.4s ease;
-}
-
-.gallery-item:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-
-.gallery-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 1rem 1rem;
-  background: linear-gradient(transparent, rgba(0,0,0,0.85));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.gallery-item:hover .gallery-overlay { opacity: 1; }
-
-.gallery-overlay h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
-}
-
-.gallery-overlay p {
-  font-size: 0.72rem;
-  color: var(--text-secondary);
-  letter-spacing: 0.05em;
-}
-
-.gallery-overlay .tool-badge {
-  display: inline-block;
-  padding: 0.2rem 0.5rem;
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1px solid var(--accent-teal);
-  color: var(--accent-teal);
-  margin-top: 0.4rem;
-}
-
-/* ===== ABOUT ===== */
-#about { background: var(--bg-primary); }
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.about-card {
-  padding: 2rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  transition: border-color 0.3s ease;
-}
-
-.about-card:hover { border-color: var(--accent-purple); }
-
-.about-card-icon {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.about-card h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
-  color: var(--text-primary);
-}
-
-.about-card p {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-/* ===== PRICING ===== */
-#pricing { background: var(--bg-secondary); }
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-
-.pricing-card {
-  padding: 2.5rem 2rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  text-align: center;
-  transition: all 0.4s ease;
-}
-
-.pricing-card:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-4px);
-}
-
-.pricing-card.featured {
-  border-color: var(--accent-gold);
-  position: relative;
-}
-
-.pricing-card.featured::before {
-  content: 'MOST POPULAR';
-  position: absolute;
-  top: -0.6rem;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0.25rem 1rem;
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  background: var(--accent-gold);
-  color: var(--bg-primary);
-  font-weight: 600;
-}
-
-.pricing-card h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-
-.pricing-amount {
-  font-family: 'Cinzel', serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--accent-gold);
-  margin: 1rem 0;
-}
-
-.pricing-amount span {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--text-secondary);
-}
-
-.pricing-features {
-  list-style: none;
-  margin: 1.5rem 0 2rem;
-  text-align: left;
-}
-
-.pricing-features li {
-  padding: 0.5rem 0;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.pricing-features li::before {
-  content: '—';
-  color: var(--accent-teal);
-  margin-right: 0.75rem;
-}
-
-/* ===== CONTACT ===== */
-#contact { background: var(--bg-primary); }
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-top: 3rem;
-  align-items: start;
-}
-
-.contact-info p {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-  line-height: 1.8;
-}
-
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  text-decoration: none;
-  color: var(--text-primary);
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
-}
-
-.contact-link:hover {
-  border-color: var(--accent-gold);
-  background: rgba(201,168,76,0.05);
-}
-
-.contact-link-label {
-  font-size: 0.65rem;
-  color: var(--text-secondary);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.contact-cta {
-  padding: 3rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  text-align: center;
-}
-
-.contact-cta h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-}
-
-.contact-cta p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  padding: 3rem 2rem;
-  text-align: center;
-  border-top: 1px solid var(--border-subtle);
-  background: var(--bg-primary);
-}
-
-footer p {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  letter-spacing: 0.05em;
-}
-
-footer .footer-brand {
-  font-family: 'Cinzel', serif;
-  color: var(--accent-gold);
-  font-weight: 600;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  .about-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .gallery { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg-primary:#0a0a0f;--bg-secondary:#12121a;--bg-card:#1a1a26;--bg-card-hover:#22222f;--text-primary:#e8e6e3;--text-body:#c8c5bf;--text-secondary:#9a97a0;--accent-gold:#c9a84c;--accent-purple:#8b5cf6;--accent-teal:#2dd4bf;--border-subtle:rgba(255,255,255,0.06);--border-gold:rgba(201,168,76,0.2);--glow-purple:rgba(139,92,246,0.15);--glow-gold:rgba(201,168,76,0.15)}
+html{scroll-behavior:smooth}
+body{font-family:'Raleway',sans-serif;background:var(--bg-primary);color:var(--text-body);line-height:1.7;overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-subtle)}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;font-family:'Cinzel',serif;font-size:1.1rem;font-weight:600;color:var(--accent-gold);text-decoration:none;letter-spacing:0.04em}
+.nav-logo img{height:30px;width:30px;object-fit:contain}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.8rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s}
+.nav-links a:hover{color:var(--accent-gold)}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;padding:2rem;background:radial-gradient(ellipse at 20% 50%,var(--glow-purple) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,var(--glow-gold) 0%,transparent 60%),var(--bg-primary)}
+.hero-content{position:relative;z-index:1}
+.hero-logo{width:160px;height:auto;margin-bottom:1.5rem;border-radius:24px;filter:drop-shadow(0 0 40px rgba(201,168,76,0.25)) drop-shadow(0 0 80px rgba(139,92,246,0.15));animation:fadeInUp 0.8s ease-out}
+.logo-text{font-family:'Cinzel',serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:700;letter-spacing:0.08em;background:linear-gradient(135deg,var(--accent-gold),#e8d5a3,var(--accent-gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem;animation:fadeInUp 1s ease-out}
+.logo-sub{font-size:clamp(0.75rem,2vw,1rem);font-weight:300;letter-spacing:0.35em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:2rem;animation:fadeInUp 1s ease-out 0.2s both}
+.hero-tagline{font-size:clamp(1rem,2.5vw,1.25rem);font-weight:300;color:var(--text-body);max-width:580px;margin:0 auto 2.5rem;animation:fadeInUp 1s ease-out 0.4s both}
+.hero-cta{display:inline-flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;animation:fadeInUp 1s ease-out 0.6s both}
+
+.btn{padding:0.85rem 2.2rem;font-family:'Raleway',sans-serif;font-size:0.85rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border:1px solid var(--accent-gold);color:var(--accent-gold);background:transparent;cursor:pointer;transition:all 0.3s}
+.btn:hover{background:var(--accent-gold);color:var(--bg-primary);box-shadow:0 0 25px var(--glow-gold)}
+.btn-filled{background:var(--accent-gold);color:var(--bg-primary)}
+.btn-filled:hover{background:transparent;color:var(--accent-gold)}
+.btn-sm{padding:0.55rem 1.4rem;font-size:0.75rem}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-label{font-size:0.7rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent-purple);margin-bottom:0.75rem}
+.section-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:600;color:var(--text-primary);margin-bottom:1rem}
+.section-desc{font-size:1rem;color:var(--text-body);max-width:600px;font-weight:300;line-height:1.8}
+
+#portfolio{background:var(--bg-secondary)}
+.genre-tabs{display:flex;gap:1rem;margin:2.5rem 0;flex-wrap:wrap}
+.genre-tab{padding:0.6rem 1.5rem;font-family:'Raleway',sans-serif;font-size:0.78rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;background:transparent;border:1px solid var(--border-subtle);color:var(--text-secondary);cursor:pointer;transition:all 0.3s}
+.genre-tab:hover,.genre-tab.active{border-color:var(--accent-gold);color:var(--accent-gold);background:rgba(201,168,76,0.05)}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:1.5rem}
+.gallery-item{position:relative;overflow:hidden;border:1px solid var(--border-subtle);transition:all 0.4s;border-radius:4px;background:var(--bg-card)}
+.gallery-item:hover{border-color:var(--border-gold);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.4)}
+.gallery-item img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;transition:transform 0.4s}
+.gallery-item:hover img{transform:scale(1.02)}
+.gallery-info{padding:1rem 1.2rem 1.2rem}
+.gallery-info h3{font-family:'Cinzel',serif;font-size:0.95rem;font-weight:600;color:var(--text-primary);margin-bottom:0.3rem}
+.gallery-info .genre-label{font-size:0.75rem;color:var(--accent-gold);font-weight:500;letter-spacing:0.04em;margin-bottom:0.5rem;display:block}
+.gallery-info p{font-size:0.85rem;color:var(--text-secondary);line-height:1.6;margin-bottom:0.75rem}
+.gallery-info .tool-badge{display:inline-block;padding:0.2rem 0.6rem;font-size:0.7rem;border:1px solid var(--border-subtle);color:var(--text-secondary);border-radius:2px;margin-right:0.5rem}
+.gallery-actions{display:flex;gap:0.5rem;margin-top:0.75rem;align-items:center}
+.share-links{display:flex;gap:0.5rem;margin-left:auto}
+.share-links a{color:var(--text-secondary);font-size:0.75rem;text-decoration:none;padding:0.3rem 0.5rem;border:1px solid var(--border-subtle);border-radius:2px;transition:all 0.3s}
+.share-links a:hover{color:var(--accent-gold);border-color:var(--accent-gold)}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-top:2.5rem}
+.about-card{background:var(--bg-card);border:1px solid var(--border-subtle);padding:2rem 1.5rem;border-radius:4px;transition:border-color 0.3s}
+.about-card:hover{border-color:var(--border-gold)}
+.about-card-icon{font-size:1.5rem;margin-bottom:1rem}
+.about-card h3{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:600;color:var(--text-primary);margin-bottom:0.75rem}
+.about-card p{font-size:0.9rem;color:var(--text-body);line-height:1.7}
+.artist-statement{margin-top:3rem;padding:2.5rem;background:var(--bg-card);border:1px solid var(--border-gold);border-radius:4px}
+.artist-statement h3{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:600;color:var(--accent-gold);margin-bottom:1rem}
+.artist-statement p{font-size:0.95rem;color:var(--text-body);line-height:1.8;margin-bottom:1rem}
+
+#pricing{background:var(--bg-secondary)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.pricing-card{background:var(--bg-card);border:1px solid var(--border-subtle);padding:2.5rem 2rem;text-align:center;border-radius:4px;transition:border-color 0.3s,transform 0.3s}
+.pricing-card:hover{border-color:var(--border-gold);transform:translateY(-3px)}
+.pricing-card.featured{border-color:var(--accent-gold);position:relative}
+.pricing-card.featured::before{content:'POPULAR';position:absolute;top:-0.7rem;left:50%;transform:translateX(-50%);background:var(--accent-gold);color:var(--bg-primary);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;padding:0.2rem 0.8rem;border-radius:2px}
+.pricing-card h3{font-family:'Cinzel',serif;font-size:1.15rem;margin-bottom:0.5rem;color:var(--text-primary)}
+.pricing-amount{font-size:2.5rem;font-weight:700;color:var(--accent-gold)}
+.pricing-amount span{font-size:0.9rem;font-weight:400;color:var(--text-secondary)}
+.pricing-features{list-style:none;text-align:left;margin:1.5rem 0 2rem}
+.pricing-features li{padding:0.45rem 0;font-size:0.88rem;color:var(--text-body);border-bottom:1px solid rgba(255,255,255,0.03)}
+.pricing-features li::before{content:'✦ ';color:var(--accent-gold);font-size:0.7rem}
+
+.newsletter-section{text-align:center;padding:4rem 2rem;background:linear-gradient(135deg,rgba(139,92,246,0.06),rgba(201,168,76,0.06))}
+.newsletter-section h2{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:600;color:var(--text-primary);margin-bottom:0.5rem}
+.newsletter-section p{color:var(--text-body);margin-bottom:1.5rem;font-size:0.95rem}
+.newsletter-form{display:flex;gap:0.75rem;max-width:450px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.newsletter-form input{flex:1;min-width:200px;padding:0.8rem 1.2rem;background:var(--bg-card);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:'Raleway',sans-serif;font-size:0.9rem;border-radius:2px;outline:none;transition:border-color 0.3s}
+.newsletter-form input:focus{border-color:var(--accent-gold)}
+.newsletter-form input::placeholder{color:var(--text-secondary)}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}
+.contact-links{display:flex;flex-direction:column;gap:0.75rem}
+.contact-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:4px;text-decoration:none;color:var(--text-primary);transition:border-color 0.3s,background 0.3s}
+.contact-link:hover{border-color:var(--accent-gold);background:var(--bg-card-hover)}
+.contact-link-label{font-size:0.7rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.1rem}
+.contact-cta{background:var(--bg-card);border:1px solid var(--border-gold);border-radius:4px;padding:2.5rem;text-align:center}
+.contact-cta h3{font-family:'Cinzel',serif;font-size:1.3rem;color:var(--text-primary);margin-bottom:0.75rem}
+.contact-cta p{color:var(--text-body);font-size:0.95rem;margin-bottom:1.5rem}
+
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border-subtle);color:var(--text-secondary);font-size:0.8rem}
+.footer-brand{font-family:'Cinzel',serif;color:var(--accent-gold);font-weight:600}
+
+@media(max-width:768px){nav{padding:0.8rem 1.5rem}.nav-links{display:none}.about-grid{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">InkShift Studio</a>
+  <a href="#" class="nav-logo">
+    <img src="logos/logo-monogram.png" alt="InkShift Studio monogram logo">
+    InkShift Studio
+  </a>
   <ul class="nav-links">
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#about">About</a></li>
@@ -548,12 +133,13 @@ footer .footer-brand {
 
 <section class="hero">
   <div class="hero-content">
+    <img src="logos/logo-main.png" alt="InkShift Studio pen nib logo with flowing ink in gold purple and teal" class="hero-logo">
     <h1 class="logo-text">InkShift</h1>
     <p class="logo-sub">Studio</p>
-    <p class="hero-tagline">AI-powered cover art for webnovel authors. From dark fantasy to tender romance, we create covers that capture the soul of your story.</p>
+    <p class="hero-tagline">Genre-accurate AI cover art for webnovel authors. Fantasy, romance, progression fantasy. Covers that make readers click.</p>
     <div class="hero-cta">
       <a href="#portfolio" class="btn btn-filled">View Portfolio</a>
-      <a href="#pricing" class="btn">Commission a Cover</a>
+      <a href="#pricing" class="btn">See Pricing</a>
     </div>
   </div>
 </section>
@@ -562,122 +148,182 @@ footer .footer-brand {
   <div class="container">
     <p class="section-label">Our Work</p>
     <h2 class="section-title">Portfolio</h2>
-    <p class="section-desc">Genre-specific cover art crafted with precision. Each piece is designed to match reader expectations and stop the scroll.</p>
-    
+    <p class="section-desc">Every cover is crafted with the genre's visual language in mind. Browse by genre, read about the creative process, and purchase directly.</p>
+
     <div class="genre-tabs">
-      <button class="genre-tab active" onclick="filterGallery('all')">All</button>
+      <button class="genre-tab active" onclick="filterGallery('all')">All Genres</button>
       <button class="genre-tab" onclick="filterGallery('fantasy')">Fantasy</button>
       <button class="genre-tab" onclick="filterGallery('romance')">Romance</button>
       <button class="genre-tab" onclick="filterGallery('progression')">Progression</button>
     </div>
 
-    <div class="gallery" id="gallery">
-      
-      <div class="gallery-item" data-genre="romance">
-        <img src="covers/blossoms_moonlight.png" alt="Blossoms in the Moonlight" loading="lazy">
-        <div class="gallery-overlay">
-          <h3>Blossoms in the Moonlight</h3>
-          <p>Historical Romance</p>
-          <span class="tool-badge">DALL-E 3</span>
-        </div>
-      </div>
+    <div class="gallery">
 
       <div class="gallery-item" data-genre="fantasy">
-        <img src="covers/ashen_cliff.png" alt="Lord of the Ashen Kingdom" loading="lazy">
-        <div class="gallery-overlay">
+        <img src="covers/ashen_cliff.png" alt="Lord of the Ashen Kingdom dark fantasy webnovel cover art showing lone warrior on cliff overlooking ruined kingdom" loading="lazy">
+        <div class="gallery-info">
           <h3>Lord of the Ashen Kingdom</h3>
-          <p>Dark Fantasy</p>
-          <span class="tool-badge">RunwayML</span>
+          <span class="genre-label">Dark Fantasy</span>
+          <p>A lone warrior surveys a kingdom consumed by ash and ruin. Bold silhouette composition with muted earth tones and dramatic backlighting, designed for dark fantasy serials.</p>
+          <span class="tool-badge">RunwayML</span><span class="tool-badge">Nano Banana 2</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
         </div>
       </div>
 
-      <div class="gallery-item" data-genre="progression">
-        <img src="covers/ascension_tower.png" alt="Ascension: Infinite Tower" loading="lazy">
-        <div class="gallery-overlay">
-          <h3>Ascension: Infinite Tower</h3>
-          <p>Progression Fantasy / LitRPG</p>
-          <span class="tool-badge">RunwayML</span>
+      <div class="gallery-item" data-genre="fantasy">
+        <img src="covers/ashen_birdseye.png" alt="The Ashen Kingdom aerial view dark fantasy cover showing bird eye view of ruined kingdom landscape" loading="lazy">
+        <div class="gallery-info">
+          <h3>The Ashen Kingdom — Aerial</h3>
+          <span class="genre-label">Dark Fantasy</span>
+          <p>Bird's-eye perspective of the fallen kingdom. This variant explores environmental scale and desolation, offering a different feel from the character-focused version above.</p>
+          <span class="tool-badge">RunwayML</span><span class="tool-badge">Nano Banana 2</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-genre="fantasy">
+        <img src="covers/regressor_temporal.png" alt="The Regressors Path regression fantasy cover with temporal distortion and time loop imagery" loading="lazy">
+        <div class="gallery-info">
+          <h3>The Regressor's Path</h3>
+          <span class="genre-label">Regression Fantasy</span>
+          <p>Time fractures and temporal distortion surround a character caught in a regression loop. Fragmented composition reflects the genre's core mechanic of reliving events.</p>
+          <span class="tool-badge">RunwayML</span><span class="tool-badge">Nano Banana 2</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-genre="fantasy">
+        <img src="covers/regressor_falling.png" alt="The Regressors Path variant cover showing figure falling through swirling time tunnel" loading="lazy">
+        <div class="gallery-info">
+          <h3>The Regressor's Path — Time Tunnel</h3>
+          <span class="genre-label">Time Loop Fantasy</span>
+          <p>A figure plunging through a swirling time tunnel. This variant emphasises motion and vertigo, capturing the disorientation of regression as a visual experience.</p>
+          <span class="tool-badge">RunwayML</span><span class="tool-badge">Nano Banana 2</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-genre="fantasy">
+        <img src="covers/murim_hall.png" alt="Murim Sovereign Korean martial arts fantasy cover showing warrior in grand murim hall" loading="lazy">
+        <div class="gallery-info">
+          <h3>Murim Sovereign</h3>
+          <span class="genre-label">Korean Martial Arts Fantasy</span>
+          <p>A martial artist stands in a grand murim hall. Culturally specific Korean architectural details and qi energy motifs designed for the murim fantasy subgenre.</p>
+          <span class="tool-badge">RunwayML</span><span class="tool-badge">Nano Banana 2</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-genre="fantasy">
+        <img src="covers/murim_meditation.png" alt="Murim Sovereign meditation variant showing martial artist meditating with energy aura" loading="lazy">
+        <div class="gallery-info">
+          <h3>Murim Sovereign — Meditation</h3>
+          <span class="genre-label">Martial Arts Fantasy</span>
+          <p>Inner cultivation and meditation, a core murim concept. The energy aura and calm composition contrast with the action version, showing versatility within the subgenre.</p>
+          <span class="tool-badge">RunwayML</span><span class="tool-badge">Nano Banana 2</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
         </div>
       </div>
 
       <div class="gallery-item" data-genre="romance">
-        <img src="covers/ceo_rooftop.png" alt="The CEO's Secret Contract" loading="lazy">
-        <div class="gallery-overlay">
+        <img src="covers/blossoms_moonlight.png" alt="Blossoms in the Moonlight historical romance cover with couple in Joseon era moonlit garden" loading="lazy">
+        <div class="gallery-info">
+          <h3>Blossoms in the Moonlight</h3>
+          <span class="genre-label">Historical Romance</span>
+          <p>A Joseon-era garden under midnight blue sky with warm lantern highlights. Soft digital painting style and atmospheric lighting tuned for historical romance readers.</p>
+          <span class="tool-badge">DALL-E 3</span><span class="tool-badge">ChatGPT</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-genre="romance">
+        <img src="covers/ceo_rooftop.png" alt="The CEOs Secret Contract modern romance cover with couple on rooftop bar with city skyline bokeh" loading="lazy">
+        <div class="gallery-info">
           <h3>The CEO's Secret Contract</h3>
-          <p>Modern Romance</p>
-          <span class="tool-badge">DALL-E 3</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-genre="fantasy">
-        <img src="covers/murim_hall.png" alt="Murim Sovereign" loading="lazy">
-        <div class="gallery-overlay">
-          <h3>Murim Sovereign</h3>
-          <p>Korean Martial Arts Fantasy</p>
-          <span class="tool-badge">RunwayML</span>
+          <span class="genre-label">Modern Romance</span>
+          <p>Rooftop bar with city skyline bokeh. Contemporary setting with warm evening tones, designed to signal modern office romance to readers scrolling through recommendations.</p>
+          <span class="tool-badge">DALL-E 3</span><span class="tool-badge">ChatGPT</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
         </div>
       </div>
 
       <div class="gallery-item" data-genre="romance">
-        <img src="covers/cafe_stardust.png" alt="Café Stardust" loading="lazy">
-        <div class="gallery-overlay">
+        <img src="covers/cafe_stardust.png" alt="Cafe Stardust slice of life romance cover showing cozy cafe interior with warm golden lighting" loading="lazy">
+        <div class="gallery-info">
           <h3>Café Stardust</h3>
-          <p>Slice-of-Life Romance</p>
-          <span class="tool-badge">DALL-E 3</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-genre="fantasy">
-        <img src="covers/regressor_temporal.png" alt="The Regressor's Path" loading="lazy">
-        <div class="gallery-overlay">
-          <h3>The Regressor's Path</h3>
-          <p>Regression Fantasy</p>
-          <span class="tool-badge">RunwayML</span>
+          <span class="genre-label">Slice-of-Life Romance</span>
+          <p>Wide-shot café interior bathed in warm golden light. The cozy atmosphere targets the slice-of-life subgenre where mood matters more than drama.</p>
+          <span class="tool-badge">DALL-E 3</span><span class="tool-badge">ChatGPT</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
         </div>
       </div>
 
       <div class="gallery-item" data-genre="romance">
-        <img src="covers/gumiho_split.png" alt="My Roommate is a Gumiho" loading="lazy">
-        <div class="gallery-overlay">
+        <img src="covers/gumiho_split.png" alt="My Roommate is a Gumiho supernatural romance cover with split day night composition showing dual nature" loading="lazy">
+        <div class="gallery-info">
           <h3>My Roommate is a Gumiho</h3>
-          <p>Supernatural Romance</p>
-          <span class="tool-badge">DALL-E 3</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-genre="fantasy">
-        <img src="covers/ashen_birdseye.png" alt="The Ashen Kingdom — Ruins" loading="lazy">
-        <div class="gallery-overlay">
-          <h3>The Ashen Kingdom</h3>
-          <p>Dark Fantasy — Aerial</p>
-          <span class="tool-badge">RunwayML</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-genre="fantasy">
-        <img src="covers/murim_meditation.png" alt="Murim Sovereign — Meditation" loading="lazy">
-        <div class="gallery-overlay">
-          <h3>Murim Sovereign</h3>
-          <p>Martial Arts — Meditation</p>
-          <span class="tool-badge">RunwayML</span>
+          <span class="genre-label">Supernatural Romance</span>
+          <p>Split day/night composition conveying the gumiho's dual nature from Korean folklore. Visual contrast between mundane and supernatural reflects the genre's core tension.</p>
+          <span class="tool-badge">DALL-E 3</span><span class="tool-badge">ChatGPT</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
         </div>
       </div>
 
       <div class="gallery-item" data-genre="progression">
-        <img src="covers/regressor_falling.png" alt="The Regressor's Path — Time Tunnel" loading="lazy">
-        <div class="gallery-overlay">
-          <h3>The Regressor's Path</h3>
-          <p>Time Loop Fantasy</p>
-          <span class="tool-badge">RunwayML</span>
+        <img src="covers/ascension_tower.png" alt="Ascension Infinite Tower progression fantasy LitRPG cover showing adventurer before massive crystal tower" loading="lazy">
+        <div class="gallery-info">
+          <h3>Ascension: Infinite Tower</h3>
+          <span class="genre-label">Progression Fantasy / LitRPG</span>
+          <p>An adventurer dwarfed by an impossibly tall tower stretching into the sky. Vertical composition and scale contrast are the visual hallmarks of tower-climbing stories.</p>
+          <span class="tool-badge">RunwayML</span><span class="tool-badge">Nano Banana 2</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
         </div>
       </div>
 
       <div class="gallery-item" data-genre="progression">
-        <img src="covers/ascension_boss.png" alt="Ascension — Boss Battle" loading="lazy">
-        <div class="gallery-overlay">
+        <img src="covers/ascension_boss.png" alt="Ascension Boss Floor progression fantasy cover showing epic boss battle on tower floor" loading="lazy">
+        <div class="gallery-info">
           <h3>Ascension: Boss Floor</h3>
-          <p>Progression Fantasy / LitRPG</p>
-          <span class="tool-badge">RunwayML</span>
+          <span class="genre-label">Progression Fantasy / LitRPG</span>
+          <p>Boss encounter on a tower floor. High-energy action composition with scale imbalance between challenger and boss that LitRPG readers immediately recognise.</p>
+          <span class="tool-badge">RunwayML</span><span class="tool-badge">Nano Banana 2</span>
+          <div class="gallery-actions">
+            <a href="#pricing" class="btn btn-sm">Purchase — $15</a>
+            <div class="share-links"><a href="https://twitter.com/intent/tweet?text=Check+out+this+cover+from+InkShift+Studio&url=https://jyvman.github.io/inkshiftstudio/" target="_blank">Share</a></div>
+          </div>
         </div>
       </div>
 
@@ -689,24 +335,31 @@ footer .footer-brand {
   <div class="container">
     <p class="section-label">Who We Are</p>
     <h2 class="section-title">About InkShift</h2>
-    <p class="section-desc">We create professional AI-generated cover art tailored for webnovel authors. Using cutting-edge tools across multiple platforms, we deliver genre-specific covers that capture the essence of your story.</p>
-    
+    <p class="section-desc">Professional AI-generated cover art tailored for webnovel authors. Multiple AI tools, each matched to the genre that suits it best.</p>
+
     <div class="about-grid">
       <div class="about-card">
         <div class="about-card-icon">&#9876;</div>
         <h3>Genre Expertise</h3>
-        <p>We specialise in fantasy, romance, and progression fantasy — the core genres of the webnovel ecosystem. Every cover is crafted with deep understanding of reader expectations for each niche.</p>
+        <p>We specialise in fantasy, romance, and progression fantasy. Every cover is crafted with deep understanding of what readers in each niche expect to see.</p>
       </div>
       <div class="about-card">
         <div class="about-card-icon">&#9881;</div>
         <h3>Multi-Tool Pipeline</h3>
-        <p>We use ChatGPT/DALL-E 3, RunwayML, and Stable Diffusion — selecting the right tool for each genre. Soft digital painting for romance, bold comic art for action, detailed fantasy for LitRPG.</p>
+        <p>DALL-E 3 for romance, RunwayML for action, Stable Diffusion for high-volume work. The right tool for the right genre, not a one-size-fits-all approach.</p>
       </div>
       <div class="about-card">
         <div class="about-card-icon">&#9733;</div>
         <h3>Author-First Pricing</h3>
-        <p>Professional covers at a fraction of traditional illustration costs. Fast turnaround, iterative revisions, and pricing designed for self-publishing authors — not corporate budgets.</p>
+        <p>Professional covers at a fraction of traditional illustration costs. Designed for self-publishing authors, not corporate budgets. Covers from $15.</p>
       </div>
+    </div>
+
+    <div class="artist-statement">
+      <h3>Artist Statement</h3>
+      <p>InkShift Studio exists because webnovel authors deserve covers that match the quality of their stories without breaking the bank. The webnovel ecosystem is huge and growing, but the gap between what readers expect visually and what most authors can afford is massive.</p>
+      <p>I use AI as a tool, not a replacement for creative decision-making. Every cover involves deliberate choices about genre conventions, composition, mood, and colour palette. The AI generates, but the human directs. Choosing which model to use, how to prompt it, which outputs to keep, and how to iterate on them is where the actual creative work happens.</p>
+      <p>The covers in this portfolio aren't generic AI outputs. They're genre-specific compositions designed for specific subgenres within the webnovel space, built by someone who actually reads and understands these stories.</p>
     </div>
   </div>
 </section>
@@ -715,24 +368,23 @@ footer .footer-brand {
   <div class="container">
     <p class="section-label">Services</p>
     <h2 class="section-title">Pricing</h2>
-    <p class="section-desc">Covers that match your story's genre and mood. Choose the option that fits your needs.</p>
+    <p class="section-desc">Covers that match your story's genre and mood. Clear pricing, no hidden fees.</p>
 
     <div class="pricing-grid">
       <div class="pricing-card">
         <h3>Template Cover</h3>
-        <div class="pricing-amount">$20<span> / cover</span></div>
+        <div class="pricing-amount">$15<span> / cover</span></div>
         <ul class="pricing-features">
           <li>Pre-made genre covers</li>
           <li>High resolution download</li>
           <li>Commercial use rights</li>
           <li>Instant delivery</li>
         </ul>
-        <a href="https://gumroad.com" class="btn" style="width:100%;text-align:center;display:block;">Browse Shop</a>
+        <a href="#contact" class="btn" style="width:100%;text-align:center;display:block;">Browse Covers</a>
       </div>
-
       <div class="pricing-card featured">
         <h3>Custom Commission</h3>
-        <div class="pricing-amount">$65<span> / cover</span></div>
+        <div class="pricing-amount">$50<span> / cover</span></div>
         <ul class="pricing-features">
           <li>Tailored to your story</li>
           <li>3 concept iterations</li>
@@ -742,14 +394,13 @@ footer .footer-brand {
         </ul>
         <a href="#contact" class="btn btn-filled" style="width:100%;text-align:center;display:block;">Get Started</a>
       </div>
-
       <div class="pricing-card">
         <h3>Series Package</h3>
-        <div class="pricing-amount">$180<span> / 3 covers</span></div>
+        <div class="pricing-amount">$130<span> / 3 covers</span></div>
         <ul class="pricing-features">
           <li>Consistent style across series</li>
           <li>Character continuity</li>
-          <li>Volume discounts</li>
+          <li>Volume discount</li>
           <li>Priority turnaround</li>
           <li>Revisions included</li>
         </ul>
@@ -759,46 +410,38 @@ footer .footer-brand {
   </div>
 </section>
 
+<section class="newsletter-section">
+  <h2>Stay Updated</h2>
+  <p>New covers, genre spotlights, and behind-the-scenes process breakdowns. No spam.</p>
+  <form class="newsletter-form" onsubmit="event.preventDefault();alert('Thanks for subscribing!');">
+    <input type="email" placeholder="your@email.com" required>
+    <button type="submit" class="btn btn-filled btn-sm">Subscribe</button>
+  </form>
+</section>
+
 <section id="contact">
   <div class="container">
     <p class="section-label">Get in Touch</p>
     <h2 class="section-title">Contact</h2>
-    
     <div class="contact-grid">
       <div>
-        <p class="contact-info"><p>Ready to bring your webnovel to life with professional cover art? Reach out through any of the channels below, or visit our shop to browse pre-made covers.</p></p>
+        <p style="margin-bottom:1.5rem;">Ready to bring your webnovel to life with professional cover art? DM us on Instagram or X for custom commissions, or browse the portfolio for pre-made covers.</p>
         <div class="contact-links">
-          <a href="mailto:inkshiftstudio@gmail.com" class="contact-link">
-            <div>
-              <div class="contact-link-label">Email</div>
-              <div>inkshiftstudio@gmail.com</div>
-            </div>
-          </a>
-          <a href="https://instagram.com/inkshiftstudio" class="contact-link" target="_blank">
-            <div>
-              <div class="contact-link-label">Instagram</div>
-              <div>@inkshiftstudio</div>
-            </div>
+          <a href="https://www.instagram.com/realinkshiftstudio/" class="contact-link" target="_blank">
+            <div><div class="contact-link-label">Instagram</div><div>@realinkshiftstudio</div></div>
           </a>
           <a href="https://x.com/inkshiftstudio" class="contact-link" target="_blank">
-            <div>
-              <div class="contact-link-label">X / Twitter</div>
-              <div>@inkshiftstudio</div>
-            </div>
+            <div><div class="contact-link-label">X / Twitter</div><div>@inkshiftstudio</div></div>
           </a>
-          <a href="https://gumroad.com" class="contact-link" target="_blank">
-            <div>
-              <div class="contact-link-label">Shop</div>
-              <div>InkShift Studio on Gumroad</div>
-            </div>
+          <a href="#pricing" class="contact-link">
+            <div><div class="contact-link-label">Shop</div><div>Browse Covers — from $15</div></div>
           </a>
         </div>
       </div>
-
       <div class="contact-cta">
         <h3>Commission a Cover</h3>
-        <p>Tell us about your webnovel — the genre, the mood, the characters — and we'll create a cover that stops the scroll.</p>
-        <a href="mailto:inkshiftstudio@gmail.com" class="btn btn-filled">Start Your Project</a>
+        <p>Tell us about your webnovel: the genre, the mood, the characters. We'll create a cover that stops the scroll.</p>
+        <a href="https://www.instagram.com/realinkshiftstudio/" target="_blank" class="btn btn-filled">Start Your Project</a>
       </div>
     </div>
   </div>
@@ -809,22 +452,15 @@ footer .footer-brand {
 </footer>
 
 <script>
-function filterGallery(genre) {
-  const items = document.querySelectorAll('.gallery-item');
-  const tabs = document.querySelectorAll('.genre-tab');
-  
-  tabs.forEach(t => t.classList.remove('active'));
+function filterGallery(genre){
+  var items=document.querySelectorAll('.gallery-item');
+  var tabs=document.querySelectorAll('.genre-tab');
+  tabs.forEach(function(t){t.classList.remove('active')});
   event.target.classList.add('active');
-  
-  items.forEach(item => {
-    if (genre === 'all' || item.dataset.genre === genre) {
-      item.style.display = 'block';
-    } else {
-      item.style.display = 'none';
-    }
+  items.forEach(function(item){
+    item.style.display=(genre==='all'||item.dataset.genre===genre)?'block':'none';
   });
 }
 </script>
-
 </body>
 </html>
